@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Books List
+    </div>
+    <div class="card-body">
+      <a [routerLink]="['/books' , 'create']" class="btn btn-primary mb-3">Create</a>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Description</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let book of bookList, index as i">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{book.title}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.description}}</td>
+          <td>
+            <a [routerLink]="['/books' , book.id , 'edit']" class="btn btn-outline-info">Edit</a>
+            <hr>
+            <a type="button" (click)="delete(book.id)" class="btn btn-outline-secondary">Delete</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
